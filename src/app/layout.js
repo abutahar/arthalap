@@ -1,12 +1,12 @@
 export const metadata = {
-  title: 'Arthalap',
-  description: 'Arthalap for IU Eco'
-}
+  title: "Arthalap",
+  description: "Arthalap Economic Journal BD",
+};
 
 export default function RootLayout({ children }) {
- return (
+  return (
     <html lang="en">
-      <body className="w-3/4 mx-auto h-[100vh] bg-gray-200">{children}</body>
+      <body className="md:w-10/12  m-0 p-0 h-[100vh]">{children}</body>
     </html>
-  )
+  );
 }

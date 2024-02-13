@@ -1,16 +1,18 @@
-import React from 'react';
+import React from "react";
 
 const Navbar = () => {
-    return (
-        <div>
-            <h1>here is nav bar</h1>
-            <li>li 1</li>
-            <li>li 2</li>
-            <li>li 3</li>
-            <li>li 4</li>
-            <li>li 5</li>
-        </div>
-    );
+  return (
+    <div className="flex justify-center list-none">
+      <select name="menu" className="border border-gray-100 rounded-sm">
+        <option value="home" defaultChecked>
+          Home
+        </option>
+        <option value="allpost">Posts</option>
+        <option value="about">About Us</option>
+        <option value="policy">Policy</option>
+      </select>
+    </div>
+  );
 };
 
 export default Navbar;

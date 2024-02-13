@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const hallow = () => {
-    return "hi";
+  return "hi";
 };
 
 export default hallow;

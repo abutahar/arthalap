@@ -1,4 +1,3 @@
-export default function page()
-{
-    return "here is help page"
+export default function page() {
+  return "here is help page";
 }
