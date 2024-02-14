@@ -1,7 +1,7 @@
 import React from "react";
 
 const Banner = () => {
-  return <div></div>;
+  return <div>this is banner of arthalap</div>;
 };
 
 export default Banner;
