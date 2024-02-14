@@ -1,3 +1,5 @@
+import Header from "./shared/Header";
+
 export const metadata = {
   title: "Arthalap",
   description: "Arthalap Economic Journal BD",
@@ -6,7 +8,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="md:w-10/12  m-0 p-0 h-[100vh]">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
