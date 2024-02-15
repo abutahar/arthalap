@@ -5,6 +5,7 @@ export const metadata = {
   description: "Arthalap Economic Journal BD",
 };
 
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

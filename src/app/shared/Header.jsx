@@ -5,6 +5,7 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import { BiLogIn } from "react-icons/bi";
 
 const Header = () => {
+  const user = "";
   return (
     <div className="h-auto  border-b md:border-b-2 md:py-2  md:px-4 border-gray-200 px-2">
       <div className="flex px-2 md:px-10 md:gap-5 items-center justify-around md:hover:justify-start   h-full">

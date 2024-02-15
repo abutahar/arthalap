@@ -1,6 +1,10 @@
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const Navbar = () => {
+  const pathname = usePathname();
   return (
     <div>
       {/* for mobile */}
@@ -8,19 +12,41 @@ const Navbar = () => {
         name="menu"
         className="border md:text-2xl md:hidden  border-gray-100 rounded-sm"
       >
-        <option value="home" defaultChecked>
-          Home
+        <option value="home">
+          <a href="/">Home</a>
         </option>
-        <option value="allpost">Blogs</option>
+        <option value="blogs">
+          <a href="">Blogs</a>
+        </option>
+        <option value="writers">Writers</option>
         <option value="about">About Us</option>
-        <option value="policy">Contributors</option>
       </select>
       {/* for pc */}
-      <div className="list-none hidden  text-xl uppercase md:flex items-center justify-center mr-auto gap-7">
-        <li className="hover:border-y-2 px-2 border-gray-200">Home</li>
-        <li className="hover:border-y-2 px-2 border-gray-200">About</li>
-        <li className="hover:border-y-2 px-2 border-gray-200">Contributors</li>
-        <li className="hover:border-y-2 px-2 border-gray-200">Blogs</li>
+      <div className="list-none hidden  text-xl uppercase md:flex items-center justify-center mr-auto gap-2">
+        <Link
+          href="/"
+          className={`${pathname == "/" ? " border-2 border-blue-400 bg-gray-200 rounded" : " hover:border-b-[3px]"}  px-2 `}
+        >
+          Home
+        </Link>
+        <Link
+          href="/about"
+          className={`${pathname == "/about" ? " border-2 border-blue-400 bg-gray-200 rounded" : " hover:border-b-[3px]"}  px-2 `}
+        >
+          About
+        </Link>
+        <Link
+          href="/writers"
+          className={`${pathname == "/writers" ? " border-2 border-blue-400 bg-gray-200 rounded" : " hover:border-b-[3px]"}  px-2 `}
+        >
+          Writers
+        </Link>
+        <Link
+          href="/blogs"
+          className={`${pathname == "/blogs" ? " border-2 border-blue-400 bg-gray-200 rounded" : " hover:border-b-[3px]"}  px-2 `}
+        >
+          Blogs
+        </Link>
       </div>
     </div>
   );
