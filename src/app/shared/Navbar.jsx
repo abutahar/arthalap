@@ -1,26 +1,20 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React from "react";
+import { redirect, usePathname } from "next/navigation";
 
+import React from "react";
 const Navbar = () => {
   const pathname = usePathname();
+
   return (
     <div>
       {/* for mobile */}
-      <select
+      <div
         name="menu"
-        className="border md:text-2xl md:hidden  border-gray-100 rounded-sm"
+        className="border md:text-2xl md:hidden list-none flex uppercase text-sm gap-2 justify-between px-2 py-[1px] border-gray-100 rounded-sm"
       >
-        <option value="home">
-          <a href="/">Home</a>
-        </option>
-        <option value="blogs">
-          <a href="">Blogs</a>
-        </option>
-        <option value="writers">Writers</option>
-        <option value="about">About Us</option>
-      </select>
+        Welcome to arthalap
+      </div>
       {/* for pc */}
       <div className="list-none hidden  text-xl uppercase md:flex items-center justify-center mr-auto gap-2">
         <Link
@@ -51,5 +45,4 @@ const Navbar = () => {
     </div>
   );
 };
-
 export default Navbar;

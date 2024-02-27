@@ -1,14 +1,15 @@
 import React from "react";
 import Footer from "../shared/Footer";
 import Header from "../shared/Header";
+import globals from "../globals.css";
 
-const layout = ({ children }) => {
+const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col gap-2 justify-between h-screen">
       <div>
         <Header></Header>
       </div>
-      <div>{children}</div>
+      <div className="">{children}</div>
       <div className="mt-auto">
         <Footer></Footer>
       </div>
@@ -16,4 +17,4 @@ const layout = ({ children }) => {
   );
 };
 
-export default layout;
+export default Layout;
