@@ -2,13 +2,15 @@
 import { useEffect, useState } from "react";
 import globals from "../globals.css";
 export default function page() {
+  
   const [ress, setRess] = useState([]);
   useEffect(() => {
-    fetch("http://arthalap.org:8000/posts")
+    fetch(`${process.env.URL}/posts`)
       .then((res) => res.json())
       .then((d) => {
         setRess(d);
       });
+    console.log("the url is", process.env.URL);
   }, []);
   return (
     <div>

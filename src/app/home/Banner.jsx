@@ -1,6 +1,7 @@
 import React from "react";
 
 const Banner = () => {
+  
   return (
     <div className="flex md:w-[70%] mx-auto flex-col-reverse md:h-[50vh]  md:flex-row-reverse">
       <div className=" md:basis-2/3 h-60 md:h-full">

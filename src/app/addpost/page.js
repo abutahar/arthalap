@@ -2,9 +2,10 @@
 import React, { useState } from "react";
 
 const addPost = () => {
-  const formHandle = async (e) => {
+  const [response, setResponse] = useState({});
+  const formHandle = (e) => {
     e.preventDefault();
-
+    const form = e.target;
     const title = e.target.title.value;
     const post = e.target.post.value;
     console.log(title, post);
@@ -12,15 +13,19 @@ const addPost = () => {
     if (title && post) {
       try {
         const d = { title, post };
-        const fetchData = await fetch("http://arthalap.org:8000/addpost", {
+        fetch(`${process.env.URL}/addpost`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(d),
-        });
-        const resposne = await fetchData.json();
-        console.log(resposne || "empty");
+        })
+          .then((fetchData) => fetchData.json())
+          .then((res) => {
+            console.log(res || "empty");
+            setResponse(res);
+            form.reset();
+          });
       } catch (err) {
         console.log(err);
       }
@@ -28,7 +33,9 @@ const addPost = () => {
   };
   return (
     <div className="p-4">
-      <h3 className="text-center text-2xl">add your post here</h3>
+      <h3 className="text-center text-xl md:text-2xl uppercase ">
+        add your post here
+      </h3>
       <form
         onSubmit={formHandle}
         className="w-full md:w-1/2 border rounded-md mt-4 mx-auto md:mt-10 px-3"

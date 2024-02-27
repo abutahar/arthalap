@@ -5,9 +5,7 @@ const page = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "https://arthalap-backend.vercel.app/posts",
-        );
+        const response = await fetch(`${process.env.URL}/posts`);
         const result = await response.json();
 
         setWriters(result);
@@ -19,8 +17,10 @@ const page = () => {
   }, []);
 
   return (
-    <div>
-      <h1>We have {writers?.length || "currently no"} writers</h1>
+    <div className="mx-auto w-screen lg:w-10/12 px-4">
+      <h1 className="text-xl uppercase md:text-3xl text-center">
+        We have {writers?.length || "..."} writers
+      </h1>
     </div>
   );
 };
