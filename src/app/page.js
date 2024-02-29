@@ -2,6 +2,7 @@ import MainArea from "./home/MainArea";
 import Footer from "./shared/Footer";
 import Header from "./shared/Header";
 import globals from "./globals.css";
+import { useContext } from "react";
 
 export default function Home() {
   return (

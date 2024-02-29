@@ -63,7 +63,7 @@ const Header = () => {
               >
                 x
               </div>
-              <div className="border rounded-md flex justify-between w-full px-2 pt-2 pb-3 hover:bg-gray-200">
+              <div className="border rounded-md flex justify-between w-full items-center px-2 pt-2 pb-3 hover:bg-gray-200 border-green-300">
                 <a href="/addpost">Add a Post</a>
                 <span className="md:text-xl rounded  border p-1 mr-1 mt-1 border-gray-200">
                   <a href="/addpost">

@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import globals from "../globals.css";
 export default function page() {
-  
   const [ress, setRess] = useState([]);
   useEffect(() => {
     fetch(`${process.env.URL}/posts`)
@@ -26,6 +25,7 @@ export default function page() {
             <h1 className="font-semibold text-2xl uppercase border-b mb-3 pb-4">
               {index + 1 + ". " + data.title || ""}
             </h1>
+            <p>Date:{data.postTime || "not added"}</p>
             <p>{data.post || ""}</p>
           </div>
         ))}
