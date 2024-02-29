@@ -45,14 +45,14 @@ const addPost = () => {
         setErr("");
       }, 2000);
     } else if (title.length < 20) {
-      setErr("title should be more than 20 char");
+      setErr("title should be more than 20 character");
       setTimeout(() => {
         setErr("");
       }, 2000);
       form.title.focus();
     } else {
       form.post.focus();
-      setErr("post should be more than 200 char");
+      setErr("post should be more than 200 character");
       setTimeout(() => {
         setErr("");
       }, 2000);
@@ -70,7 +70,7 @@ const addPost = () => {
       >
         <fieldset className="border border-black rounded px-4 pb-2">
           <legend className="px-1 uppercase text-sm">
-            Give the needed data{" "}
+            Give the needed data
           </legend>
           <label htmlFor="title" className="text-gray-600 text-sm mt-1">
             Title
@@ -93,15 +93,7 @@ const addPost = () => {
             rows="3"
             id=""
           />
-          {/* <div className=" flex justify-start gap-2">
-            <label for="featured">Featured:</label>
-            <input type="checkbox" name="featured" id="" />
-            <br />
-          </div>
-          <div className=" flex justify-start gap-2">
-            <label for="anonymous">Post Anonymous:</label>
-            <input type="checkbox" name="anonymous" id="" />
-          </div> */}
+
           <div className="text-sm text-red-700">
             <p>{err || ""}</p>
           </div>

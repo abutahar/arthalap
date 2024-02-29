@@ -19,7 +19,7 @@ const page = () => {
   return (
     <div className="mx-auto w-screen lg:w-10/12 px-4">
       <h1 className="text-xl uppercase md:text-3xl text-center">
-        We have {writers?.length || "..."} writers
+        We have {writers?.length || "...."} writers
       </h1>
     </div>
   );
