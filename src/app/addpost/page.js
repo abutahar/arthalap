@@ -1,6 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import moment from "moment";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const addPost = () => {
   // state declaration
@@ -35,6 +38,9 @@ const addPost = () => {
             console.log(res || "empty");
             setResponse(res);
             form.reset();
+            setTimeout(() => {
+              toast.success("Thank you for this postg!");
+            }, 2000);
           });
       } catch (err) {
         setErr("something wrong!!");
