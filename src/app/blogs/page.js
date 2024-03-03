@@ -15,10 +15,10 @@ export default function page() {
   return (
     <div>
       <h1 className="text-center my-4 text-2xl">
-        we have {ress.length} blogs posted
+        we have {ress?.length} blogs posted
       </h1>
       <div className=" grid  md:grid-cols-2 gap-3 md:gap-8 lg:grid-cols-3">
-        {ress.map((data) => (
+        {ress?.map((data) => (
           <div
             key={data._id}
             className="border  md:basis-1/2 lg:basis-1/3 rounded-md p-2 md:p-4"
