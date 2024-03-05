@@ -9,14 +9,24 @@ const addPost = () => {
   const [response, setResponse] = useState({});
   const [err, setErr] = useState("");
   const user = { name: "taher" };
+  const pDate = new Date();
+  const pdate = pDate.toDateString();
+  console.log(pdate, pDate);
 
   // form handler function
   const formHandle = (e) => {
     e.preventDefault();
 
     // declarations
-    const time = moment();
-    const postTime = time.add(6, "hours");
+    const now = moment();
+    const year = now.year();
+    const month = now.month() + 1;
+    // Month index is zero-based, so add 1 to get the correct month
+    const day = now.date();
+    const hours = now.hours();
+    const minutes = now.minutes();
+    const seconds = now.seconds();
+    const mili = now.millisecond();
     const form = e.target;
     const title = e.target.title.value;
     const post = e.target.post.value;
@@ -24,7 +34,7 @@ const addPost = () => {
     // first check of input
     if (title.length > 20 && post.length > 200) {
       try {
-        const d = { title, post, user, postTime };
+        const d = { title, post, user, mili };
         fetch(`${process.env.URL}/addpost`, {
           method: "POST",
           headers: {
