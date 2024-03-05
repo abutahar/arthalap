@@ -1,9 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import moment from "moment";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 const addPost = () => {
   // state declaration
   const [response, setResponse] = useState({});
@@ -13,7 +12,6 @@ const addPost = () => {
   // form handler function
   const formHandle = (e) => {
     e.preventDefault();
-
     // declarations
     const time = new Date();
     const postTime = time.toString();
@@ -34,18 +32,17 @@ const addPost = () => {
         })
           .then((fetchData) => fetchData.json())
           .then((res) => {
-            console.log(res || "empty");
             setResponse(res);
             form.reset();
-            setTimeout(() => {
-              toast.success("Thank you for this postg!");
-            }, 2000);
+            toast.success("Thank you for this post!", { autoClose: 2000 });
           });
       } catch (err) {
         setErr("something wrong!!");
+        toast.error("Problems to post");
       }
     } else if (!title && !post) {
-      setErr("please fill up the form");
+      form.title.focus();
+      setErr("please fill up the form first");
       setTimeout(() => {
         setErr("");
       }, 2000);
@@ -65,41 +62,40 @@ const addPost = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 transition-all">
+      <ToastContainer></ToastContainer>;
       <h3 className="text-center text-xl md:text-2xl uppercase ">
         add your post here
       </h3>
       <form
         onSubmit={formHandle}
-        className="w-full md:w-1/2  rounded-md mt-4 mx-auto md:mt-10 px-3"
+        className="w-full md:w-1/2  rounded-md mt-4 mx-auto md:mt-10 px-3 "
       >
-        <fieldset className="border border-black rounded px-4 pb-2">
+        <fieldset className="border border-black rounded md:rounded-lg lg:rounded-2xl px-5 pb-3 pt-2 lg:px-12 lg:py-8 ">
           <legend className="px-1 uppercase text-sm">
             Give the needed data
           </legend>
-          <label htmlFor="title" className="text-gray-600 text-sm mt-1">
-            Title
-          </label>
+          <label
+            htmlFor="title"
+            className="text-gray-600 text-sm mt-1 md:font-normal uppercase"
+          ></label>
           <input
-            className="mt-2 mb-2  outline-purple-400 rounded px-3 border w-full pt-1 pb-2"
+            autoFocus
+            className="mt-2 mb-2 md:h-12 md:text-xl font-serif outline-purple-400 rounded px-3 border w-full pt-1 pb-2"
             type="text"
             name="title"
-            placeholder="Type title of the article"
-            id=""
+            placeholder="Type the Title of your Article"
+            id="title"
           />
-          <label htmlFor="post" className="text-gray-600 text-sm mt-1">
-            Post Body
-          </label>
+          <label htmlFor="post" className="text-gray-600 text-sm mt-1"></label>
           <textarea
-            className="mt-2 mb-2  outline-purple-400 rounded px-3 border w-full pt-1 pb-2"
+            className="mt-2 mb-2  outline-purple-400 rounded px-3 border w-full pt-1 pb-2 md:text-xl font-serif md:h-32 lg:h-36"
             type="textaria"
             name="post"
             placeholder="Type your article body"
-            rows="3"
-            id=""
           />
 
-          <div className="text-sm text-red-700">
+          <div className="text-sm text-red-700 lowercase">
             <p>{err || ""}</p>
           </div>
           <input
