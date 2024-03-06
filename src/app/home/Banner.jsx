@@ -41,18 +41,18 @@ const Banner = (props) => {
     return (
       <>
         <div
-          className="text-center w-full flex flex-col justify-evenly pt-4 px-2 items-center bg-gray-400 h-[50vh]
+          className="text-center w-full flex py-4 flex-col justify-evenly  px-2  items-center bg-gray-400 
         "
         >
           <h1 className="text-2xl mb-3 md:text-5xl font-semibold ">
             অর্থা-লাপে আপনাকে&nbsp;স্বাগতম
           </h1>
-          <p className="w-2/3 text-center font-normal md:text-xl lg:text-2xl">
+          <p className="md:w-2/3 text-center font-normal md:text-xl lg:text-2xl">
             অর্থালাপ একটি অলাভজনক সংস্থা যার মুল উদ্দেশ্য অর্থনীতি বিষয়ক সৃজনশীল
             চিন্তা-ধারনা বিস্তার করা ও নবিন লেখকদের উৎসাহি করে তোলা।
           </p>
-          <p className="w-2/3 text-center font-normal md:text-xl lg:text-2xl">
-            অর্থালাপ সম্পর্কে আরো জানতে আমাদের ওয়েব সাইট{" "}
+          <p className="md:w-2/3 text-center font-normal md:text-xl lg:text-2xl">
+            অর্থালাপ সম্পর্কে আরো জানতে আমাদের ওয়েবসাইট{" "}
             <Link href="/about">
               <button className="border rounded-md px-2 pb-1 pt-1 ml-1">
                 ঘুরে দেখুন
