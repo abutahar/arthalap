@@ -17,12 +17,13 @@ const addPost = () => {
     const postTime = time.toString();
     const form = e.target;
     const title = e.target.title.value;
+    const name = e.target.name.value;
     const post = e.target.post.value;
 
     // first check of input
     if (title.length > 20 && post.length > 200) {
       try {
-        const d = { title, post, user, postTime };
+        const d = { title, post, name, postTime };
         fetch(`${process.env.URL}/addpost`, {
           method: "POST",
           headers: {
@@ -93,6 +94,18 @@ const addPost = () => {
             type="textaria"
             name="post"
             placeholder="Type your article body"
+          />
+          <label
+            htmlFor="name"
+            className="text-gray-600 text-sm mt-1 md:font-normal uppercase"
+          ></label>
+          <input
+            autoFocus
+            className="mt-2 mb-2 md:h-12 md:text-xl font-serif outline-purple-400 rounded px-3 border w-full pt-1 pb-2"
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            id="name"
           />
 
           <div className="text-sm text-red-700 lowercase">

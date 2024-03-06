@@ -3,8 +3,15 @@ import LeftSidebar from "../shared/LeftSidebar";
 import RightSidebar from "../shared/RightSidebar";
 import LatestBlog from "./LatestBlogs";
 import GlobalEconomy from "./GlobalEconomoy";
+import ErrorPage from "./ErrorPage";
 
-export default function MainArea() {
+export default async function MainArea() {
+  const data1 = (await fetch(`${process.env.URL}/home`))?.json() || [];
+
+  try {
+  } catch (err) {
+    return <ErrorPage></ErrorPage>;
+  }
   return (
     <main className="min-h-[70vh]  md:mx-auto bg-gray">
       <div className="">
@@ -16,7 +23,7 @@ export default function MainArea() {
           {/* here is content area in pc */}
           {/* banner section */}
           <section className=" p-4 md:p-10">
-            <Banner></Banner>
+            <Banner data={data1}></Banner>
           </section>
 
           {/* latest blog section */}
@@ -24,9 +31,7 @@ export default function MainArea() {
             <div className=" md:w-[70%] mx-auto">
               <h1 className="uppercase text-3xl mb-6">Latest blogs</h1>
               <div className="md:grid grid-cols-3  lg:grid-cols-3 gap-10 ">
-                <LatestBlog></LatestBlog>
-                <LatestBlog></LatestBlog>
-                <LatestBlog></LatestBlog>
+                no post yet
               </div>
               <button className="px-3 pt-1 pb-2 text-end block ml-auto font-semibold blur-[.5px] mb-4 rounded-md bg-primary text-white text-lg">
                 Read More
@@ -38,55 +43,7 @@ export default function MainArea() {
           <section className="md:w-[70%] p-4 md:p-10 mx-auto">
             <h1 className="uppercase  text-3xl my-6 pt-4">Global Economy</h1>
             <div className="md:grid grid-cols-3 lg:grid-cols-3 gap-10">
-              <GlobalEconomy></GlobalEconomy>
-              <GlobalEconomy></GlobalEconomy>
-            </div>
-          </section>
-          <section className="bg-gray p-4 md:p-10">
-            <div className=" md:w-[70%] mx-auto">
-              <h1 className="uppercase text-3xl mb-6">Latest blogs</h1>
-              <div className="md:grid grid-cols-3  lg:grid-cols-3 gap-10 ">
-                <LatestBlog></LatestBlog>
-                <LatestBlog></LatestBlog>
-                <LatestBlog></LatestBlog>
-              </div>
-              <button className="px-3 pt-1 pb-2 text-end block ml-auto font-semibold blur-[.5px] mb-4 rounded-md bg-primary text-white text-lg">
-                Read More
-              </button>
-            </div>
-          </section>
-
-          {/* global economy section */}
-          <section className="md:w-[70%] p-4 md:p-10 mx-auto">
-            <h1 className="uppercase  text-3xl my-6 pt-4">Global Economy</h1>
-            <div className="md:grid grid-cols-3 lg:grid-cols-3 gap-10">
-              <GlobalEconomy></GlobalEconomy>
-              <GlobalEconomy></GlobalEconomy>
-            </div>
-            <button className="px-3 pt-1 pb-2 text-end block ml-auto font-semibold blur-[.5px] mb-4 rounded-md bg-primary text-white text-lg">
-              Read More
-            </button>
-          </section>
-          <section className="bg-gray p-4 md:p-10">
-            <div className=" md:w-[70%] mx-auto">
-              <h1 className="uppercase text-3xl mb-6">Latest blogs</h1>
-              <div className="md:grid grid-cols-3  lg:grid-cols-3 gap-10 ">
-                <LatestBlog></LatestBlog>
-                <LatestBlog></LatestBlog>
-                <LatestBlog></LatestBlog>
-              </div>
-              <button className="px-3 pt-1 pb-2 text-end block ml-auto font-semibold blur-[.5px] mb-4 rounded-md bg-primary text-white text-lg">
-                Read More
-              </button>
-            </div>
-          </section>
-
-          {/* global economy section */}
-          <section className="md:w-[70%] p-4 md:p-10 mx-auto">
-            <h1 className="uppercase  text-3xl my-6 pt-4">Global Economy</h1>
-            <div className="md:grid grid-cols-3 lg:grid-cols-3 gap-10">
-              <GlobalEconomy></GlobalEconomy>
-              <GlobalEconomy></GlobalEconomy>
+              no post yet
             </div>
           </section>
         </div>
